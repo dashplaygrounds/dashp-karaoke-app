@@ -1,0 +1,30 @@
+version: '3'
+services:
+  karaoke-eternal:
+    image: radrootllc/karaoke-eternal
+    container name: karaoke-eternal
+    volumes:
+      - ke-config-data:/config
+      - jw-songs-data:/mnt/karaoke
+    networks:
+      - ke-net
+    ports:
+      - 3030:8080
+    restart: unless-stopped
+
+volumes:
+  ke-config-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /media/ke-config
+  jw-songs-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /media/jw-songs
+networks:
+  ke-net:
+    external: true
