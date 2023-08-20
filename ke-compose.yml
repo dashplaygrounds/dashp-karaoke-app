@@ -2,7 +2,7 @@ version: '3'
 services:
   karaoke-eternal:
     image: radrootllc/karaoke-eternal
-    container name: karaoke-eternal
+    container_name: karaoke-eternal
     volumes:
       - ke-config-data:/config
       - jw-songs-data:/mnt/karaoke
